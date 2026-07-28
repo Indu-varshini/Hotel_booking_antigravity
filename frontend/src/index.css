@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Design System Color Tokens */
+  --bg-page: #070A12;
+  --bg-card: #0E1422;
+  --bg-sidebar: #0B0F19;
+  --bg-header: rgba(11, 15, 25, 0.95);
+  --bg-hover: #141C2E;
+
+  --border-subtle: #1E293B;
+  --border-focus: #6366F1;
+
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+
+  --color-indigo: #6366F1;
+  --color-cyan: #06B6D4;
+  --color-emerald: #10B981;
+  --color-amber: #F59E0B;
+  --color-rose: #EF4444;
+
+  /* Radius Tokens */
+  --radius-sm: 8px;
+  --radius-card: 12px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glass & Card Design System Utility */
+.bi-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.bi-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.6);
+}
+
+.bi-input {
+  background-color: #141C2E;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.bi-input:focus {
+  border-color: var(--color-indigo);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070A12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 200ms ease forwards;
+}
+
+/* Light Theme Variables & Class Overrides */
+html.light, body.light {
+  --bg-page: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-header: rgba(255, 255, 255, 0.95);
+  --bg-hover: #E2E8F0;
+
+  --border-subtle: #CBD5E1;
+  --border-focus: #4F46E5;
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+html.light .bg-\[\#070A12\], 
+html.light .bg-\[\#070a12\] {
+  background-color: #F8FAFC !important;
+}
+html.light .bg-\[\#0B0F19\] {
+  background-color: #FFFFFF !important;
+}
+html.light .bg-\[\#0E1422\] {
+  background-color: #FFFFFF !important;
+}
+html.light .bg-\[\#141C2E\] {
+  background-color: #F1F5F9 !important;
+}
+html.light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #E2E8F0 !important;
+}
+html.light .bg-slate-900 {
+  background-color: #E2E8F0 !important;
+}
+html.light .bg-slate-800, html.light .bg-slate-800\/60 {
+  background-color: #F1F5F9 !important;
+}
+html.light .text-white {
+  color: #0F172A !important;
+}
+html.light .text-slate-200, html.light .text-slate-300 {
+  color: #1E293B !important;
+}
+html.light .text-slate-400 {
+  color: #64748B !important;
+}
+html.light .border-\[\#1E293B\], 
+html.light .border-\[\#1F2937\], 
+html.light .border-slate-800,
+html.light .border-slate-800\/80,
+html.light .border-slate-700\/50 {
+  border-color: #CBD5E1 !important;
+}
+html.light aside {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+}
+
