@@ -19,17 +19,19 @@ const exportHistory = [
   { name: 'Raw_Booking_Logs_2026.csv', type: 'CSV Data', date: '22 Jul 2026', size: '4.1 MB', status: 'Completed' }
 ];
 
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
 const ReportsDashboard = () => {
   const [downloadMsg, setDownloadMsg] = useState('');
 
   const handleDownloadCSV = () => {
-    window.open('http://localhost:5000/api/export/csv', '_blank');
+    window.open(`${API_BASE}/export/csv`, '_blank');
     setDownloadMsg('CSV Export triggered successfully.');
     setTimeout(() => setDownloadMsg(''), 3000);
   };
 
   const handleDownloadExcel = () => {
-    window.open('http://localhost:5000/api/export/excel', '_blank');
+    window.open(`${API_BASE}/export/excel`, '_blank');
     setDownloadMsg('Excel Export (.xlsx) generated successfully.');
     setTimeout(() => setDownloadMsg(''), 3000);
   };

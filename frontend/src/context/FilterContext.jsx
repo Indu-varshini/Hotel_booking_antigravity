@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const FilterContext = createContext();
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 export const FilterProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => localStorage.getItem('app-theme') || 'dark');

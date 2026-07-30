@@ -23,8 +23,12 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'UP', message: 'Hotel Intelligence Analytics Platform API is running smoothly' });
 });
 
-app.listen(PORT, () => {
-    console.log(`=======================================================`);
-    console.log(` Hotel Intelligence Analytics Platform API running on port ${PORT} `);
-    console.log(`=======================================================`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`=======================================================`);
+        console.log(` Hotel Intelligence Analytics Platform API running on port ${PORT} `);
+        console.log(`=======================================================`);
+    });
+}
+
+module.exports = app;
