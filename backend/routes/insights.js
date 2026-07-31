@@ -7,7 +7,7 @@ const dbPath = path.join(__dirname, '../database/hotel_analytics.db');
 
 router.get('/', (req, res) => {
     try {
-        const db = new DatabaseSync(dbPath);
+        const db = new DatabaseSync(dbPath, { readOnly: true });
 
         // Calculate dynamic insights from live database
         const topCity = db.prepare(`

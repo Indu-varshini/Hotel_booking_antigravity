@@ -9,7 +9,7 @@ const dbPath = path.join(__dirname, '../database/hotel_analytics.db');
 // GET /api/export/csv - Raw CSV Export
 router.get('/csv', (req, res) => {
     try {
-        const db = new DatabaseSync(dbPath);
+        const db = new DatabaseSync(dbPath, { readOnly: true });
         const rows = db.prepare(`
             SELECT 
                 b.booking_reference, h.name as hotel_name, h.city, r.room_type,
@@ -52,7 +52,7 @@ router.get('/csv', (req, res) => {
 // GET /api/export/excel - Excel (.xlsx) Report Export
 router.get('/excel', async (req, res) => {
     try {
-        const db = new DatabaseSync(dbPath);
+        const db = new DatabaseSync(dbPath, { readOnly: true });
         const workbook = new ExcelJS.Workbook();
         workbook.creator = 'AI Hotel Analytics Platform';
 

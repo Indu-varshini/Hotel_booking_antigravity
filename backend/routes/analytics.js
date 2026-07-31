@@ -6,7 +6,7 @@ const path = require('path');
 const dbPath = path.join(__dirname, '../database/hotel_analytics.db');
 
 function getDb() {
-    return new DatabaseSync(dbPath);
+    return new DatabaseSync(dbPath, { readOnly: true });
 }
 
 const MONTH_MAP = {
